@@ -1,9 +1,9 @@
 {{#each this}}
   <div class='card'>
-    <h2 class='card-name'>{{name}}</h2>
     <div class='wrapper--flex'>
 
       <div class='description'>
+        <h2 class='card-name'>{{name}}</h2>
         <p class='text'>Capital: <span class='text-wrapper'>{{capital}}</span></p>
         <p class='text'>Population: <span class='text-wrapper'>{{population}}</span></p>
         <p class='text'><b>Languages:</b></p>
@@ -14,7 +14,8 @@
           {{/each}}
         </ul>
       </div>
-      <img src='{{flag}}' alt='{{name}}' width='500' height='300' />
+      <div class='wrap'>
+        <img src='{{flag}}' alt='{{name}}' width='500' height='300' /></div>
     </div>
 
   </div>
