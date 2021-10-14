@@ -10,11 +10,11 @@ import refs from './refs.js';
 const { inputEL, countriesEL, clearBtnEL } = refs;
 
 inputEL.addEventListener('input', debounce(onSearch, 500));
-clearBtnEL.addEventListener('click', clearCountry);
+clearBtnEL.addEventListener('click', onClearCountry);
 
 function onSearch() {
   if (!inputEL.value) {
-    clearCountry();
+    onClearCountry();
     return;
   }
   API(inputEL.value).then(countries => onCountrySearch(countries));
@@ -22,10 +22,10 @@ function onSearch() {
 
 function onCountrySearch(countries) {
   if (countries.length === 1) {
-    clearCountry();
+    onClearCountry();
     return onAppendCountriesCard(countries);
   } else if (countries.length >= 2 && countries.length <= 10) {
-    clearCountry();
+    onClearCountry();
     return onAppendListCountries(countries);
   } else if (countries.length > 10) {
     return onOutputInfo();
@@ -36,7 +36,7 @@ function onCountrySearch(countries) {
   }
 }
 
-function clearCountry() {
+function onClearCountry() {
   inputEL.value = '';
   countriesEL.innerHTML = '';
 }
@@ -44,15 +44,14 @@ function clearCountry() {
 function onAppendListCountries(countries) {
   countriesEL.insertAdjacentHTML('beforeend', countriesListTemplate(countries));
 
-  const listCountryEL = document.querySelector('.countries-list');
-  listCountryEL.addEventListener('click', targetValue);
+  document.querySelector('.countries-list').addEventListener('click', onTargetValue);
 }
 
 function onAppendCountriesCard(countries) {
   countriesEL.insertAdjacentHTML('beforeend', countriesCardTemplate(countries));
 }
 
-function targetValue(e) {
+function onTargetValue(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
