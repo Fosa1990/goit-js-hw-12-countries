@@ -106,7 +106,12 @@ button:hover {
 
 .card-name,
 .text {
+  margin: 0;
   color: $yellow;
+}
+
+.text {
+  padding-top: 10px;
 }
 
 .text-wrapper {
@@ -114,7 +119,6 @@ button:hover {
 }
 
 h1 {
-  margin: 0;
   color: $blue;
 }
 .help-title {
