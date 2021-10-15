@@ -8,7 +8,10 @@
         <p class='text'>Region: <span class='text-wrapper'>{{region}}</span></p>
         <p class='text'>Subregion: <span class='text-wrapper'>{{subregion}}</span></p>
         <p class='text'>Population: <span class='text-wrapper'>{{population}}</span></p>
-        <p class='text'>Timezones: <span class='text-wrapper'>{{timezones}}</span></p>
+        <p class='text'>Timezones:
+          {{#each timezones}}
+            <span class='text-wrapper time-zone-text'>{{this}}</span>
+          {{/each}}</p>
         <p class='text'><b>Languages:</b></p>
 
         <ul class='language'>
