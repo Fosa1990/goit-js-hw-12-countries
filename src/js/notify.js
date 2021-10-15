@@ -15,8 +15,8 @@ export function onNoCountry() {
 
 export function onOutputInfo() {
   error({
-    title: 'Такої країни не існує Σ(‘◉⌓◉’)',
-    text: 'Зробіть новий повторний пошук ...(USA)',
+    title: 'Знайдено забагато збігів Σ(‘◉⌓◉’)',
+    text: 'Будь ласка, введіть більш конкретний запит ...(USA)',
     delay: 2000,
     closerHover: true,
     mouseReset: true,
