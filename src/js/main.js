@@ -17,7 +17,10 @@ function onSearch() {
     onClearCountry();
     return;
   }
-  API(inputEL.value).then(countries => onCountrySearch(countries));
+  API(inputEL.value)
+    .then(data => data.json())
+    .then(countries => onCountrySearch(countries))
+    .catch(error => onError(error));
 }
 
 function onCountrySearch(countries) {
@@ -55,5 +58,8 @@ function onTargetValue(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
-  API(e.target.textContent).then(onCountrySearch);
+  API(e.target.textContent)
+    .then(data => data.json())
+    .then(onCountrySearch)
+    .catch(error => onError(error));
 }
